@@ -61,11 +61,11 @@
     <repositories>
         <repository>
             <id>google-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
         <repository>
             <id>google-releases</id>
-            <url>https://oss.sonatype.org/content/repositories/releases</url>
+            <url>http://oss.sonatype.org/content/repositories/releases</url>
         </repository>
     </repositories>
 
