@@ -19,6 +19,16 @@ public class QRCodeTest {
     }
 
     @Test
+    public void shouldGetCorrectFileEndingOnResultingFileForOwnFileArgument() throws Exception {
+        File tempFile = File.createTempFile("test", ".tmp");
+        tempFile.deleteOnExit();
+
+        File file = QRCode.from("Hello World").file(tempFile);
+        Assert.assertNotNull(file);
+        Assert.assertTrue(file.getName().endsWith(".png"));
+    }
+
+    @Test
     public void shouldGetSTREAMFromTextWithDefaults() throws Exception {
         ByteArrayOutputStream stream = QRCode.from("Hello World").stream();
         Assert.assertNotNull(stream);
@@ -26,7 +36,6 @@ public class QRCodeTest {
 
     @Test
     public void shouldHandleLargeString() throws Exception {
-
         int length = 2950;
         char[] chars = new char[length];
         for(int i = 0; i < length; i++) {
