@@ -2,6 +2,7 @@ package net.glxn.qrgen;
 
 
 import com.google.zxing.*;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.Writer;
 import com.google.zxing.client.j2se.*;
 import com.google.zxing.common.*;
@@ -97,6 +98,17 @@ public class QRCode {
      */
     public QRCode withCharset(String charset) {
         hints.put(EncodeHintType.CHARACTER_SET, charset);
+        return this;
+    }
+
+    /**
+     * Overrides the default cahrset by supplying a {@link com.google.zxing.EncodeHintType#CHARACTER_SET}
+     * hint to {@link com.google.zxing.qrcode.QRCodeWriter#encode}
+     *
+     * @return the current QRCode object
+     */
+    public QRCode withErrorCorrection(ErrorCorrectionLevel errorCorrectionLevel) {
+        hints.put(EncodeHintType.ERROR_CORRECTION, errorCorrectionLevel);
         return this;
     }
 
